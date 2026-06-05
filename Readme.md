@@ -10,6 +10,8 @@ El sistema representa algunos de los principales actores de una agencia de turis
 
 ```text
 src
+|
+main/java/cl/duocuc
 ├── app
 │   └── Main.java
 └── model
