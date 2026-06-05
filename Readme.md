@@ -9,9 +9,8 @@ El sistema representa algunos de los principales actores de una agencia de turis
 ## Estructura del Proyecto
 
 ```text
-src
+src/main/java/cl/duocuc
 |
-main/java/cl/duocuc
 ├── app
 │   └── Main.java
 └── model
