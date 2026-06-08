@@ -40,9 +40,11 @@ Representa una persona dentro del sistema.
 **Atributos:**
 - nombre
 - direccion
+- rut
 
 **Relación:**
-- Composición con la clase `Direccion`.
+- Agregación con la clase `Direccion`.
+- Composición con la clase `Rut`.
 
 ### Empleado
 
@@ -93,9 +95,12 @@ Todos los atributos fueron declarados como privados y se acceden mediante métod
 
 La clase `Empleado` hereda de la clase `Persona`.
 
-### Composición
+### Agregación
 
 La clase `Persona` contiene un objeto de tipo `Direccion`.
+
+### Composición
+La clase `Persona` contiene un objeto de tipo `Rut`.
 
 ### Sobrescritura de Métodos
 
