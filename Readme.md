@@ -13,11 +13,14 @@ src/main/java/cl/duocuc
 |
 ├── app
 │   └── Main.java
+├── exceptions
+│   └── RutInvalidException.java
 └── model
     ├── Direccion.java
     ├── Persona.java
     ├── Empleado.java
-    └── Operador.java
+    ├── Operador.java
+    └── Rut.java
 ```
 
 ## Clases del Sistema
@@ -59,6 +62,27 @@ Representa una empresa proveedora de servicios turísticos.
 - nombre
 - tipoServicio
 
+### Rut
+
+Representa un RUT chileno validado.
+
+**Atributos:**
+- rut
+
+**Validación:**
+- Formato requerido: `numero-digito` (ejemplo: `12345678-9`)
+- Lanza `RutInvalidException` si el formato es inválido
+
+### RutInvalidException
+
+Excepción personalizada para manejar errores de validación de RUT.
+
+**Paquete:**
+- `cl.duocuc.exceptions`
+
+**Uso:**
+- Se lanza cuando un RUT no cumple con el formato esperado (`numero-digito`)
+
 ## Conceptos de Programación Orientada a Objetos Aplicados
 
 ### Encapsulamiento
@@ -77,14 +101,20 @@ La clase `Persona` contiene un objeto de tipo `Direccion`.
 
 Se sobrescribe el método `toString()` para mostrar la información de cada objeto.
 
+### Manejo de Excepciones
+
+Se implementa una excepción personalizada (`RutInvalidException`) para validar el formato del RUT chileno mediante expresiones regulares.
+
 ## Ejemplo de Ejecución
 
 ```text
 Cliente:
+RUT: 1111111-1
 Nombre: Ana Torres
 Direccion: Los Laureles 123, Puerto Varas
 
 Guia:
+RUT: 22222222-2
 Nombre: Juan Pérez
 Direccion: San Martín 456, Llanquihue
 Cargo: Guía Turístico
