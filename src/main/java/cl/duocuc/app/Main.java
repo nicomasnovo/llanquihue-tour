@@ -27,7 +27,9 @@ public class Main {
 
         Persona cliente = new Persona("1111111-1","Ana Torres", direccion1);
 
-        Empleado guia = new Empleado("22222222-2","Juan Pérez", direccion2, "Guía Turístico");;
+        Empleado guia = new Empleado("22222222-2","Juan Pérez", direccion2, "Guía Turístico");
+
+        Empleado guia2 = new Empleado("22222222","Persona Error", direccion2, "Error turistico");;
 
         Operador operador = new Operador("PatagoniaTours", "Alojamiento");
 
