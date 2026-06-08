@@ -1,5 +1,7 @@
 package cl.duocuc.model;
 
+import cl.duocuc.exceptions.RutInvalidException;
+
 /**
  * Clase Persona.
  * Representa una persona vinculada a la agencia de turismo.
@@ -9,6 +11,11 @@ package cl.duocuc.model;
  * @version 1.0
  */
 public class Persona {
+
+    /**
+     * RUT de la persona.
+     */
+    private Rut rut;
 
     /**
      * Nombre de la persona.
@@ -23,12 +30,41 @@ public class Persona {
     /**
      * Constructor de la clase Persona.
      *
+     * @param rut RUT de la persona.
      * @param nombre nombre de la persona.
      * @param direccion dirección asociada.
      */
-    public Persona(String nombre, Direccion direccion) {
+    public Persona(String rut, String nombre, Direccion direccion) {
+        try {
+            this.rut = new Rut(rut);
+        } catch (RutInvalidException e) {
+            System.err.println("Error al crear persona: " + e.getMessage());
+            this.rut = null;
+        }
         this.nombre = nombre;
         this.direccion = direccion;
+    }
+
+    /**
+     * Obtiene el RUT.
+     *
+     * @return RUT de la persona.
+     */
+    public Rut getRut() {
+        return rut;
+    }
+
+    /**
+     * Modifica el RUT.
+     *
+     * @param rut nuevo RUT.
+     */
+    public void setRut(String rut) {
+        try {
+            this.rut = new Rut(rut);
+        } catch (RutInvalidException e) {
+            System.err.println("Error al modificar RUT: " + e.getMessage());
+        }
     }
 
     /**
@@ -74,7 +110,8 @@ public class Persona {
      */
     @Override
     public String toString() {
-        return "Nombre: " + nombre +
+        return "RUT: " + rut +
+                "\nNombre: " + nombre +
                 "\nDireccion: " + direccion;
     }
 }

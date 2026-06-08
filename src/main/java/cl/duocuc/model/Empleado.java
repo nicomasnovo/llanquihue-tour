@@ -17,12 +17,13 @@ public class Empleado extends Persona {
     /**
      * Constructor de la clase Empleado.
      *
+     * @param rut RUT del empleado.
      * @param nombre nombre del empleado.
      * @param direccion dirección del empleado.
      * @param cargo cargo desempeñado.
      */
-    public Empleado(String nombre, Direccion direccion, String cargo) {
-        super(nombre, direccion);
+    public Empleado(String rut, String nombre, Direccion direccion, String cargo) {
+        super(rut, nombre, direccion);
         this.cargo = cargo;
     }
 
