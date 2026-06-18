@@ -1,0 +1,15 @@
+Ruta Gastronómica; Ensenada; 30000
+Paseo Lacustre; Frutillar; 25000
+Tour Cultural; Puerto Varas; 20900
+Aventura Volcán; Osorno; 40000
+City Tour; Puerto Varas; 15000
+Ruta Gastronómica; Puerto Montt; 28000
+Paseo Lacustre; Puerto Varas; 22000
+Tour Cultural; Frutillar; 18500
+Aventura Volcán; Calbuco; 45000
+City Tour; Osorno; 12000
+Ruta Gastronómica; Llanquihue; 26000
+Paseo Lacustre; Llanquihue; 23000
+Tour Cultural; Puerto Montt; 19000
+Aventura Volcán; Ensenada; 42000
+City Tour; Frutillar; 14000

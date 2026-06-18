@@ -19,11 +19,12 @@ public class Empleado extends Persona {
      *
      * @param rut RUT del empleado.
      * @param nombre nombre del empleado.
-     * @param direccion dirección del empleado.
+     * @param calle calle de la dirección.
+     * @param ciudad ciudad de la dirección.
      * @param cargo cargo desempeñado.
      */
-    public Empleado(String rut, String nombre, Direccion direccion, String cargo) {
-        super(rut, nombre, direccion);
+    public Empleado(String rut, String nombre, String calle, String ciudad, String cargo) {
+        super(rut, nombre, calle, ciudad);
         this.cargo = cargo;
     }
 

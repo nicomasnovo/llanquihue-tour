@@ -5,7 +5,7 @@ import cl.duocuc.exceptions.RutInvalidException;
 /**
  * Clase Persona.
  * Representa una persona vinculada a la agencia de turismo.
- * Posee una relación de composición con la clase Direccion.
+ * Posee una relación de composición con las clases Direccion y Rut.
  *
  * @author Nico Masnovo
  * @version 1.0
@@ -32,9 +32,10 @@ public class Persona {
      *
      * @param rut RUT de la persona.
      * @param nombre nombre de la persona.
-     * @param direccion dirección asociada.
+     * @param calle calle de la dirección.
+     * @param ciudad ciudad de la dirección.
      */
-    public Persona(String rut, String nombre, Direccion direccion) {
+    public Persona(String rut, String nombre, String calle, String ciudad) {
         try {
             this.rut = new Rut(rut);
         } catch (RutInvalidException e) {
@@ -42,7 +43,7 @@ public class Persona {
             this.rut = null;
         }
         this.nombre = nombre;
-        this.direccion = direccion;
+        this.direccion = new Direccion(calle, ciudad);
     }
 
     /**

@@ -1,145 +1,93 @@
-# Sistema de Gestión para Agencia de Turismo
+# Sistema de Gestión de Tours - Llanquihue Tour
 
 ## Descripción
 
-Este proyecto fue desarrollado en Java utilizando Programación Orientada a Objetos (POO).
-
-El sistema representa algunos de los principales actores de una agencia de turismo mediante el uso de clases, herencia y composición.
+Sistema desarrollado en Java que permite gestionar tours turísticos en la zona de Llanquihue. Implementa conceptos de Programación Orientada a Objetos como herencia, composición y manejo de excepciones.
 
 ## Estructura del Proyecto
 
-```text
+```
 src/main/java/cl/duocuc
-|
 ├── app
+│   ├── ConsoleApp.java
 │   └── Main.java
 ├── exceptions
 │   └── RutInvalidException.java
-└── model
-    ├── Direccion.java
-    ├── Persona.java
-    ├── Empleado.java
-    ├── Operador.java
-    └── Rut.java
+├── model
+│   ├── Direccion.java
+│   ├── Empleado.java
+│   ├── Operador.java
+│   ├── Persona.java
+│   ├── Rut.java
+│   └── Tour.java
+├── service
+│   └── TourService.java
+└── util
+    └── FileRead.java
 ```
 
 ## Clases del Sistema
 
-### Direccion
+### Model
 
-Representa una dirección física.
+**Direccion**
+- Atributos: calle, ciudad
 
-**Atributos:**
-- calle
-- ciudad
+**Persona**
+- Atributos: rut, nombre, direccion
+- Relaciones: 
+  - Composición con `Rut`
+  - Composición con `Direccion`
 
-### Persona
+**Empleado**
+- Hereda de `Persona`
+- Atributos adicionales: cargo
 
-Representa una persona dentro del sistema.
+**Operador**
+- Atributos: nombre, tipoServicio
 
-**Atributos:**
-- nombre
-- direccion
-- rut
+**Tour**
+- Atributos: tipo, destino, precio
 
-**Relación:**
-- Agregación con la clase `Direccion`.
-- Composición con la clase `Rut`.
+**Rut**
+- Valida formato chileno (numero-digito)
+- Lanza `RutInvalidException` si el formato es incorrecto
 
-### Empleado
+### Service
 
-Representa un empleado de la agencia.
+**TourService**
+- Gestiona operaciones sobre tours
+- Métodos de búsqueda por tipo y destino
+- Carga datos desde archivo de texto
 
-**Hereda de:**
-- `Persona`
+### Util
 
-**Atributos:**
-- cargo
+**FileRead**
+- Lectura de archivos de texto
 
-### Operador
+## Conceptos POO Implementados
 
-Representa una empresa proveedora de servicios turísticos.
+**Encapsulamiento**: Atributos privados con getters y setters
 
-**Atributos:**
-- nombre
-- tipoServicio
+**Herencia**: `Empleado` extiende `Persona`
 
-### Rut
+**Composición**: `Persona` crea instancias de `Rut` y `Direccion` internamente
 
-Representa un RUT chileno validado.
+**Polimorfismo**: Sobrescritura del método `toString()`
 
-**Atributos:**
-- rut
-
-**Validación:**
-- Formato requerido: `numero-digito` (ejemplo: `12345678-9`)
-- Lanza `RutInvalidException` si el formato es inválido
-
-### RutInvalidException
-
-Excepción personalizada para manejar errores de validación de RUT.
-
-**Paquete:**
-- `cl.duocuc.exceptions`
-
-**Uso:**
-- Se lanza cuando un RUT no cumple con el formato esperado (`numero-digito`)
-
-## Conceptos de Programación Orientada a Objetos Aplicados
-
-### Encapsulamiento
-
-Todos los atributos fueron declarados como privados y se acceden mediante métodos getters y setters.
-
-### Herencia
-
-La clase `Empleado` hereda de la clase `Persona`.
-
-### Agregación
-
-La clase `Persona` contiene un objeto de tipo `Direccion`.
-
-### Composición
-La clase `Persona` contiene un objeto de tipo `Rut`.
-
-### Sobrescritura de Métodos
-
-Se sobrescribe el método `toString()` para mostrar la información de cada objeto.
-
-### Manejo de Excepciones
-
-Se implementa una excepción personalizada (`RutInvalidException`) para validar el formato del RUT chileno mediante expresiones regulares.
-
-## Ejemplo de Ejecución
-
-```text
-Cliente:
-RUT: 1111111-1
-Nombre: Ana Torres
-Direccion: Los Laureles 123, Puerto Varas
-
-Guia:
-RUT: 22222222-2
-Nombre: Juan Pérez
-Direccion: San Martín 456, Llanquihue
-Cargo: Guía Turístico
-
-Operador:
-Nombre: PatagoniaTours
-Tipo Servicio: Alojamiento
-```
+**Excepciones**: Validación de RUT mediante `RutInvalidException`
 
 ## Requisitos
 
 - Java JDK 17 o superior
-- IntelliJ IDEA
+- IntelliJ IDEA (opcional)
 
 ## Ejecución
 
-1. Abrir el proyecto en IntelliJ IDEA.
-2. Ejecutar la clase `Main.java`.
-3. Observar los resultados en la consola.
+1. Compilar el proyecto
+2. Ejecutar `Main.java`
+3. Navegar por el menú interactivo
 
 ## Autor
 
-Nicolás Rubén Masnovo
+Nicolás Masnovo
