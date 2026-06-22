@@ -62,7 +62,7 @@ public class TourService {
     public ArrayList<Tour> buscarPorTipo(String tipo) {
         return tours.stream()
                 .filter(tour -> tour.getTipo().toLowerCase().contains(tipo.toLowerCase()))
-                .collect(Collectors.toCollection(() -> new ArrayList<>()));
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 
     /**
@@ -74,7 +74,7 @@ public class TourService {
     public ArrayList<Tour> buscarPorDestino(String destino) {
         return tours.stream()
                 .filter(tour -> tour.getDestino().toLowerCase().contains(destino.toLowerCase()))
-                .collect(Collectors.toCollection(() -> new ArrayList<>()));
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 
     /**
@@ -102,10 +102,10 @@ public class TourService {
      */
     public ArrayList<String> obtenerTiposUnicos() {
         return tours.stream()
-                .map(tour -> tour.getTipo())
+                .map(Tour::getTipo)
                 .distinct()
                 .sorted()
-                .collect(Collectors.toCollection(() -> new ArrayList<>()));
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 
     /**
@@ -115,9 +115,9 @@ public class TourService {
      */
     public ArrayList<String> obtenerDestinosUnicos() {
         return tours.stream()
-                .map(tour -> tour.getDestino())
+                .map(Tour::getDestino)
                 .distinct()
                 .sorted()
-                .collect(Collectors.toCollection(() -> new ArrayList<>()));
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 }
