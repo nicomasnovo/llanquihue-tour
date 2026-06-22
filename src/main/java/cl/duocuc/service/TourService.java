@@ -1,7 +1,7 @@
 package cl.duocuc.service;
 
 import cl.duocuc.model.Tour;
-import cl.duocuc.util.FileRead;
+import cl.duocuc.util.FileUtil;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;
@@ -30,7 +30,7 @@ public class TourService {
      * @param nombreArchivo Nombre del archivo a cargar
      */
     public void cargarDatos(String nombreArchivo) {
-        ArrayList<String> lineas = FileRead.leerArchivo("src/main/resources/" + nombreArchivo);
+        ArrayList<String> lineas = FileUtil.leerArchivo("src/main/resources/" + nombreArchivo);
 
         for (String linea : lineas) {
             String[] datos = linea.split(";");

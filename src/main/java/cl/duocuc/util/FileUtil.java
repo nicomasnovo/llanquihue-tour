@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * @author Nicolás Masnovo
  * @version 1.0
  */
-public class FileRead {
+public class FileUtil {
 
     /**
      * Lee un archivo de texto.
