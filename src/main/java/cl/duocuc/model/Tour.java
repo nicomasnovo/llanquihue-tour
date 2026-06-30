@@ -1,46 +1,57 @@
 package cl.duocuc.model;
 
+import cl.duocuc.model.servicios.ServicioTuristico;
+
 /**
  * Representa un tour turístico en el sistema de Llanquihue Tour.
- * Contiene información sobre el tipo, destino y precio del tour.
+ * Contiene información sobre el servicio turístico, destino y precio del tour.
  *
  * @author Nicolás Masnovo
  * @version 1.0
  */
 public class Tour {
-    private String tipo;
+    private ServicioTuristico servicioTuristico;
     private String destino;
     private int precio;
 
     /**
      * Constructor de la clase Tour.
      *
-     * @param tipo Tipo del tour (Ruta Gastronómica, Paseo Lacustre, etc.)
+     * @param servicioTuristico Servicio turístico asociado al tour
      * @param destino Destino del tour
      * @param precio Precio del tour en pesos chilenos (sin decimales)
      */
-    public Tour(String tipo, String destino, int precio) {
-        this.tipo = tipo;
+    public Tour(ServicioTuristico servicioTuristico, String destino, int precio) {
+        this.servicioTuristico = servicioTuristico;
         this.destino = destino;
         this.precio = precio;
     }
 
     /**
-     * Obtiene el tipo del tour.
+     * Obtiene el servicio turístico del tour.
+     *
+     * @return Servicio turístico
+     */
+    public ServicioTuristico getServicioTuristico() {
+        return servicioTuristico;
+    }
+
+    /**
+     * Establece el servicio turístico del tour.
+     *
+     * @param servicioTuristico Nuevo servicio turístico
+     */
+    public void setServicioTuristico(ServicioTuristico servicioTuristico) {
+        this.servicioTuristico = servicioTuristico;
+    }
+
+    /**
+     * Obtiene el tipo del tour a través del nombre del servicio turístico.
      *
      * @return Tipo del tour
      */
     public String getTipo() {
-        return tipo;
-    }
-
-    /**
-     * Establece el tipo del tour.
-     *
-     * @param tipo Nuevo tipo del tour
-     */
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+        return servicioTuristico != null ? servicioTuristico.getNombre() : "";
     }
 
     /**
@@ -87,7 +98,7 @@ public class Tour {
     @Override
     public String toString() {
         return "Tour{" +
-                "tipo='" + tipo + '\'' +
+                "servicioTuristico=" + (servicioTuristico != null ? servicioTuristico.getNombre() : "null") +
                 ", destino='" + destino + '\'' +
                 ", precio=" + precio +
                 '}';

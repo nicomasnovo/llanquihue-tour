@@ -1,15 +1,19 @@
-Ruta Gastronómica; Ensenada; 30000
-Paseo Lacustre; Frutillar; 25000
-Tour Cultural; Puerto Varas; 20900
-Aventura Volcán; Osorno; 40000
-City Tour; Puerto Varas; 15000
-Ruta Gastronómica; Puerto Montt; 28000
-Paseo Lacustre; Puerto Varas; 22000
-Tour Cultural; Frutillar; 18500
-Aventura Volcán; Calbuco; 45000
-City Tour; Osorno; 12000
-Ruta Gastronómica; Llanquihue; 26000
-Paseo Lacustre; Llanquihue; 23000
-Tour Cultural; Puerto Montt; 19000
-Aventura Volcán; Ensenada; 42000
-City Tour; Frutillar; 14000
+RutaGastronomica;Sabores de Llanquihue;4.5;5;Llanquihue;26000
+RutaGastronomica;Ruta del Kuchen;3.0;4;Puerto Varas;28000
+RutaGastronomica;Tour Cervecero;5.0;3;Puerto Montt;28000
+RutaGastronomica;Ruta Gastronómica;6.0;5;Ensenada;30000
+PaseoLacustre;Navegando el Llanquihue;2.0;Catamarán;Llanquihue;23000
+PaseoLacustre;Atardecer en el Lago;1.5;Velero;Llanquihue;40000
+PaseoLacustre;Travesía a Frutillar;3.0;Lancha;Frutillar;25000
+PaseoLacustre;Paseo Lacustre;2.5;Catamarán;Puerto Varas;22000
+ExcursionCultural;Patrimonio de Puerto Varas;4.0;Iglesia del Sagrado Corazón;Puerto Varas;20900
+ExcursionCultural;Historia de Frutillar;3.5;Teatro del Lago;Frutillar;18500
+ExcursionCultural;Colonos Alemanes;5.0;Museo Colonial Alemán;Puerto Montt;19000
+ExcursionCultural;Tour Cultural;4.0;Centro Histórico;Frutillar;18500
+Aventura Volcán;Aventura Volcán;6.0;N/A;Osorno;40000
+Aventura Volcán;Aventura Volcán;7.0;N/A;Calbuco;45000
+Aventura Volcán;Aventura Volcán;8.0;N/A;Ensenada;42000
+City Tour;City Tour;3.0;N/A;Puerto Varas;15000
+City Tour;City Tour;2.5;N/A;Osorno;12000
+City Tour;City Tour;3.5;N/A;Frutillar;14000
+PaseoLacustre;Paseo lagos;3.0;bote pedal;Osorno;20000

@@ -1,0 +1,3 @@
+12345678-9;María González;Av. Principal 123;Puerto Varas;Guía Turístico
+98765432-1;Carlos Ramírez;Calle Secundaria 456;Frutillar;Guía Turístico
+11223344-5;Ana Fernández;Pasaje Los Aromos 789;Puerto Octay;Guía Turístico Senior
