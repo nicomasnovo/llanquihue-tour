@@ -8,6 +8,7 @@ import cl.duocuc.model.servicios.ServicioTuristico;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -15,7 +16,7 @@ import java.util.Set;
  * Obtiene los servicios desde los tours cargados.
  *
  * @author Nicolás Masnovo
- * @version 1.0
+ * @version 2.0
  */
 public class GestorServicios {
     private TourService tourService;
@@ -95,4 +96,5 @@ public class GestorServicios {
         }
         return excursiones;
     }
+
 }

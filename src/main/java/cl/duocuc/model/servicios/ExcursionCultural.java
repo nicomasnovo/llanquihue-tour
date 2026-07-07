@@ -41,6 +41,16 @@ public class ExcursionCultural extends ServicioTuristico {
     }
 
     /**
+     * Muestra la información específica de la excursión cultural.
+     * Sobrescribe el método de la clase padre para incluir el lugar histórico.
+     */
+    @Override
+    public void mostrarInformacion() {
+        super.mostrarInformacion();
+        System.out.println("Lugar histórico: " + lugarHistorico);
+    }
+
+    /**
      * Representación en cadena de la excursión cultural.
      *
      * @return String con la información completa

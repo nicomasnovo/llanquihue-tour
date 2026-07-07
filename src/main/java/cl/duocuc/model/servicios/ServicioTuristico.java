@@ -59,6 +59,15 @@ public class ServicioTuristico {
     }
 
     /**
+     * Muestra la información básica del servicio turístico.
+     * Este método puede ser sobrescrito por las subclases.
+     */
+    public void mostrarInformacion() {
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Duración: " + duracionHoras + " horas");
+    }
+
+    /**
      * Representación en cadena del servicio turístico.
      *
      * @return String con la información del servicio

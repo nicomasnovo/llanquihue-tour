@@ -41,6 +41,16 @@ public class RutaGastronomica extends ServicioTuristico {
     }
 
     /**
+     * Muestra la información específica de la ruta gastronómica.
+     * Sobrescribe el método de la clase padre para incluir el número de paradas.
+     */
+    @Override
+    public void mostrarInformacion() {
+        super.mostrarInformacion();
+        System.out.println("Número de paradas: " + numeroDeParadas);
+    }
+
+    /**
      * Representación en cadena de la ruta gastronómica.
      *
      * @return String con la información completa

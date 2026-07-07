@@ -1,15 +1,15 @@
 # Sistema de Gestión de Tours - Llanquihue Tour
 
-## TL;DR - Actividad Semana 6
+## TL;DR - Actividad Semana 7
 
-**Objetivo:** Implementar jerarquía de clases con herencia simple para modelar servicios turísticos.
+**Objetivo:** Aplicar polimorfismo a la jerarquía de clases de servicios turísticos.
 
-**Clases Creadas (paquete `cl.duocuc.model.servicios`):**
-- `ServicioTuristico` (clase base) - atributos: nombre, duracionHoras
-- `RutaGastronomica` (subclase) - atributo adicional: numeroDeParadas
-- `PaseoLacustre` (subclase) - atributo adicional: tipoEmbarcacion
-- `ExcursionCultural` (subclase) - atributo adicional: lugarHistorico
-- `GestorServicios` (servicio) - gestiona la jerarquía usando polimorfismo
+**Implementación de Polimorfismo:**
+- `ServicioTuristico` (clase base en `model`) - método `mostrarInformacion()` con implementación base
+- `RutaGastronomica` (subclase) - sobrescribe `mostrarInformacion()` con `@Override`
+- `PaseoLacustre` (subclase) - sobrescribe `mostrarInformacion()` con `@Override`
+- `ExcursionCultural` (subclase) - sobrescribe `mostrarInformacion()` con `@Override`
+- `GestorServicios` (paquete `data`) - contiene `List<ServicioTuristico>` con servicios predefinidos y método `listarServicios()` que invoca `mostrarInformacion()` polimórficamente
 
 **Cómo ejecutar: Desde IntelliJ IDEA u otro IDE compatible con Java**
 1. Abrir el proyecto en IntelliJ IDEA
@@ -17,7 +17,17 @@
 3. Click derecho sobre `Main.java` → **Run 'Main.main()'**
 4. Navegar por el menú interactivo en la consola
 
-Seleccionar opción **[10] Ver servicios turísticos** para ver la implementación.
+Seleccionar opción **[11] Demo: Polimorfismo (semana 7)**
+
+**Archivos modificados para Semana 7:**
+- `model/servicios/ServicioTuristico.java` - Agregado método `mostrarInformacion()`
+- `model/servicios/RutaGastronomica.java` - Sobrescrito `mostrarInformacion()` con `@Override`
+- `model/servicios/PaseoLacustre.java` - Sobrescrito `mostrarInformacion()` con `@Override`
+- `model/servicios/ExcursionCultural.java` - Sobrescrito `mostrarInformacion()` con `@Override`
+- `data/GestorServicios.java` - Clase con `List<ServicioTuristico>` y método `listarServicios()` que demuestra polimorfismo
+- `ui/Main.java` - Agregada opción [11] y método `verDemoPolimorfismo()` que usa `data.GestorServicios`
+
+**Documentación adicional:** Ver archivo `SEMANA7_POLIMORFISMO.md` para detalles completos de la implementación.
 
 ---
 
@@ -49,6 +59,8 @@ src/main/java/cl/duocuc
 │   ├── Persona.java
 │   ├── Rut.java
 │   └── Tour.java
+├── data
+│   └── GestorServicios.java
 ├── service
 │   ├── EmpleadoService.java
 │   ├── GestorServicios.java
@@ -101,16 +113,19 @@ src/main/java/cl/duocuc
 #### Jerarquía de Servicios Turísticos
 **ServicioTuristico** (superclase)
 - Atributos: nombre, duracionHoras
-- Método: `toString()`
+- Métodos: `mostrarInformacion()`, `toString()`
 
 **RutaGastronomica** (hereda de ServicioTuristico)
 - Atributo adicional: numeroDeParadas
+- Sobrescribe: `mostrarInformacion()` con `@Override`
 
 **PaseoLacustre** (hereda de ServicioTuristico)
 - Atributo adicional: tipoEmbarcacion
+- Sobrescribe: `mostrarInformacion()` con `@Override`
 
 **ExcursionCultural** (hereda de ServicioTuristico)
 - Atributo adicional: lugarHistorico
+- Sobrescribe: `mostrarInformacion()` con `@Override`
 
 #### Otras Clases
 
@@ -147,8 +162,13 @@ src/main/java/cl/duocuc
 - Agregar operadores
 - Carga y guarda datos desde/a archivo
 
-**GestorServicios**
-- Gestiona los servicios turísticos
+**GestorServicios** (paquete `data` - Semana 7)
+- Gestiona una colección polimórfica de servicios turísticos
+- Contiene una lista predefinida `List<ServicioTuristico>` con 6 objetos (2 de cada subclase)
+- Método `listarServicios()` que invoca `mostrarInformacion()` polimórficamente demostrando polimorfismo
+
+**GestorServicios** (paquete `service` - aplicación existente)
+- Gestiona los servicios turísticos del sistema
 - Muestra rutas gastronómicas, paseos lacustres y excursiones culturales
 - Usa `instanceof` para filtrar por tipo
 
@@ -174,8 +194,10 @@ src/main/java/cl/duocuc
 **Composición**: `Persona` compone `Rut` y `Direccion`
 
 **Polimorfismo**: 
+- Método `mostrarInformacion()` sobrescrito con `@Override` en todas las subclases de `ServicioTuristico`
+- Invocación del método `mostrarInformacion()` desde una referencia de tipo `ServicioTuristico` que resuelve dinámicamente al tipo específico del objeto
 - Sobrescritura del método `toString()` en todas las clases del modelo
-- Llamada a `super.toString()` en subclases para reutilizar código
+- Llamada a `super.toString()` y `super.mostrarInformacion()` en subclases para reutilizar código
 
 **Excepciones**: Validación robusta de RUT mediante `RutInvalidException`
 

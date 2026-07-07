@@ -21,6 +21,7 @@ public class Main {
     private static MenuEmpleados menuEmpleados;
     private static MenuOperadores menuOperadores;
     private static MenuServicios menuServicios;
+    private static cl.duocuc.data.GestorServicios gestorServiciosPolimorfismo;
 
     public static void main(String[] args) {
         inicializarSistema();
@@ -48,6 +49,9 @@ public class Main {
 
         // Crear gestor de servicios después de cargar los tours
         GestorServicios gestorServicios = new GestorServicios(tourService);
+
+        // Crear gestor de servicios para demo de polimorfismo (Semana 7)
+        gestorServiciosPolimorfismo = new cl.duocuc.data.GestorServicios();
 
         // Crear menús
         menuTours = new MenuTours(tourService, scanner);
@@ -100,6 +104,9 @@ public class Main {
                 case 10:
                     menuServicios.verServiciosTuristicos();
                     break;
+                case 11:
+                    verDemoPolimorfismo();
+                    break;
                 case 0:
                     continuar = false;
                     mostrarDespedida();
@@ -146,6 +153,7 @@ public class Main {
         System.out.println("[9] Agregar nuevo operador");
         System.out.println();
         System.out.println("[10] Ver servicios turísticos");
+        System.out.println("[11] Demo: Polimorfismo (semana 7)");
         System.out.println();
         System.out.println("[0] Salir");
         System.out.println();
@@ -159,5 +167,13 @@ public class Main {
         System.out.println();
         System.out.println("Sistema cerrado correctamente.");
         System.out.println();
+    }
+
+    /**
+     * Muestra la demostración de polimorfismo usando el GestorServicios del paquete data.
+     */
+    private static void verDemoPolimorfismo() {
+        ConsoleUtil.mostrarTitulo("DEMO: POLIMORFISMO - SEMANA 7");
+        gestorServiciosPolimorfismo.listarServicios();
     }
 }
