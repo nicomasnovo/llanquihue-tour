@@ -22,6 +22,8 @@ public class Main {
     private static MenuOperadores menuOperadores;
     private static MenuServicios menuServicios;
     private static cl.duocuc.data.GestorServicios gestorServiciosPolimorfismo;
+    private static cl.duocuc.data.GestorEntidades gestorEntidades;
+    private static InterfazGrafica interfazGrafica;
 
     public static void main(String[] args) {
         inicializarSistema();
@@ -52,6 +54,10 @@ public class Main {
 
         // Crear gestor de servicios para demo de polimorfismo (Semana 7)
         gestorServiciosPolimorfismo = new cl.duocuc.data.GestorServicios();
+
+        // Crear gestor de entidades e interfaz gráfica (Semana 8)
+        gestorEntidades = new cl.duocuc.data.GestorEntidades();
+        interfazGrafica = new InterfazGrafica(gestorEntidades);
 
         // Crear menús
         menuTours = new MenuTours(tourService, scanner);
@@ -107,6 +113,12 @@ public class Main {
                 case 11:
                     verDemoPolimorfismo();
                     break;
+                case 12:
+                    verRegistroEntidades();
+                    break;
+                case 13:
+                    interfazGrafica.mostrarFormulario();
+                    break;
                 case 0:
                     continuar = false;
                     mostrarDespedida();
@@ -153,7 +165,10 @@ public class Main {
         System.out.println("[9] Agregar nuevo operador");
         System.out.println();
         System.out.println("[10] Ver servicios turísticos");
-        System.out.println("[11] Demo: Polimorfismo (semana 7)");
+        System.out.println("[11] Demo: Polimorfismo");
+        System.out.println();
+        System.out.println("[12] Ver registro de entidades");
+        System.out.println("[13] Registrar nueva entidad con GUI");
         System.out.println();
         System.out.println("[0] Salir");
         System.out.println();
@@ -175,5 +190,13 @@ public class Main {
     private static void verDemoPolimorfismo() {
         ConsoleUtil.mostrarTitulo("DEMO: POLIMORFISMO - SEMANA 7");
         gestorServiciosPolimorfismo.listarServicios();
+    }
+
+    /**
+     * Muestra el registro de entidades usando instanceof para diferenciar tipos.
+     */
+    private static void verRegistroEntidades() {
+        ConsoleUtil.mostrarTitulo("REGISTRO DE ENTIDADES - SEMANA 8");
+        gestorEntidades.listarEntidades();
     }
 }
