@@ -32,37 +32,6 @@ Seleccionar opción **[13]** para registrar nueva entidad con interfaz gráfica 
 
 ---
 
-## TL;DR - Actividad Semana 7
-
-**Objetivo:** Aplicar polimorfismo a la jerarquía de clases de servicios turísticos.
-
-**Implementación de Polimorfismo:**
-- `ServicioTuristico` (clase base en `model`) - método `mostrarInformacion()` con implementación base
-- `RutaGastronomica` (subclase) - sobrescribe `mostrarInformacion()` con `@Override`
-- `PaseoLacustre` (subclase) - sobrescribe `mostrarInformacion()` con `@Override`
-- `ExcursionCultural` (subclase) - sobrescribe `mostrarInformacion()` con `@Override`
-- `GestorServicios` (paquete `data`) - contiene `List<ServicioTuristico>` con servicios predefinidos y método `listarServicios()` que invoca `mostrarInformacion()` polimórficamente
-
-**Cómo ejecutar: Desde IntelliJ IDEA u otro IDE compatible con Java**
-1. Abrir el proyecto en IntelliJ IDEA
-2. Ubicar la clase `Main.java` en el paquete `cl.duocuc.ui`
-3. Click derecho sobre `Main.java` → **Run 'Main.main()'**
-4. Navegar por el menú interactivo en la consola
-
-Seleccionar opción **[11] Demo: Polimorfismo (semana 7)**
-
-**Archivos modificados para Semana 7:**
-- `model/servicios/ServicioTuristico.java` - Agregado método `mostrarInformacion()`
-- `model/servicios/RutaGastronomica.java` - Sobrescrito `mostrarInformacion()` con `@Override`
-- `model/servicios/PaseoLacustre.java` - Sobrescrito `mostrarInformacion()` con `@Override`
-- `model/servicios/ExcursionCultural.java` - Sobrescrito `mostrarInformacion()` con `@Override`
-- `data/GestorServicios.java` - Clase con `List<ServicioTuristico>` y método `listarServicios()` que demuestra polimorfismo
-- `ui/Main.java` - Agregada opción [11] y método `verDemoPolimorfismo()` que usa `data.GestorServicios`
-
-**Documentación adicional:** Ver archivo `SEMANA7_POLIMORFISMO.md` para detalles completos de la implementación.
-
----
-
 ## Descripción
 
 Sistema completo desarrollado en Java que permite gestionar tours turísticos en la zona de Llanquihue. Incluye funcionalidades CRUD (Crear, Leer, Actualizar, Eliminar), gestión de personal (guías turísticos) y operadores, con persistencia de datos. Implementa conceptos avanzados de Programación Orientada a Objetos como herencia, composición, validación de datos y manejo robusto de excepciones.
@@ -73,7 +42,7 @@ Sistema completo desarrollado en Java que permite gestionar tours turísticos en
 src/main/java/cl/duocuc
 ├── ui
 │   ├── Main.java
-│   ├── InterfazGrafica.java (Semana 8)
+│   ├── InterfazGrafica.java
 │   ├── MenuEmpleados.java
 │   ├── MenuOperadores.java
 │   ├── MenuServicios.java
@@ -86,10 +55,10 @@ src/main/java/cl/duocuc
 │   │   ├── RutaGastronomica.java
 │   │   ├── PaseoLacustre.java
 │   │   └── ExcursionCultural.java
-│   ├── Registrable.java (Semana 8 - interfaz)
-│   ├── GuiaTuristico.java (Semana 8)
-│   ├── Vehiculo.java (Semana 8)
-│   ├── ColaboradorExterno.java (Semana 8)
+│   ├── Registrable.java (interfaz)
+│   ├── GuiaTuristico.java
+│   ├── Vehiculo.java
+│   ├── ColaboradorExterno.java
 │   ├── Direccion.java
 │   ├── Empleado.java
 │   ├── Operador.java
@@ -97,8 +66,8 @@ src/main/java/cl/duocuc
 │   ├── Rut.java
 │   └── Tour.java
 ├── data
-│   ├── GestorServicios.java (Semana 7)
-│   └── GestorEntidades.java (Semana 8)
+│   ├── GestorServicios.java
+│   └── GestorEntidades.java
 ├── service
 │   ├── EmpleadoService.java
 │   ├── GestorServicios.java
@@ -128,7 +97,7 @@ src/main/java/cl/duocuc
 - Agregar nuevos operadores
 - Guardado automático
 
-### Gestión de Entidades Registrables (Semana 8)
+### Gestión de Entidades Registrables
 - Ver registro de entidades (guías, vehículos, colaboradores)
 - Registro mediante interfaz gráfica (JOptionPane)
 - Diferenciación de tipos usando `instanceof`
@@ -154,12 +123,7 @@ src/main/java/cl/duocuc
 - Atributos adicionales: cargo
 - Integrado: Se puede visualizar y crear guías turísticos
 
-**GuiaTuristico** (hereda de Persona, implementa Registrable - Semana 8)
-- Atributos adicionales: especialidad
-- Implementa: `mostrarResumen()` de la interfaz Registrable
-- Usado en: Colección polimórfica de `GestorEntidades`
-
-**GuiaTuristico** (hereda de Persona, implementa Registrable - Semana 8)
+**GuiaTuristico** (hereda de Persona, implementa Registrable)
 - Atributos adicionales: especialidad
 - Implementa: `mostrarResumen()` de la interfaz Registrable
 - Usado en: Colección polimórfica de `GestorEntidades`
@@ -181,7 +145,7 @@ src/main/java/cl/duocuc
 - Atributo adicional: lugarHistorico
 - Sobrescribe: `mostrarInformacion()` con `@Override`
 
-#### Clases que implementan Registrable (Semana 8)
+#### Clases que implementan Registrable
 
 **Registrable** (interfaz)
 - Método abstracto: `mostrarResumen()`
@@ -232,17 +196,17 @@ src/main/java/cl/duocuc
 - Agregar operadores
 - Carga y guarda datos desde/a archivo
 
-**GestorServicios** (paquete `data` - Semana 7)
+**GestorServicios** (paquete `data`)
 - Gestiona una colección polimórfica de servicios turísticos
 - Contiene una lista predefinida `List<ServicioTuristico>` con 6 objetos (2 de cada subclase)
 - Método `listarServicios()` que invoca `mostrarInformacion()` polimórficamente demostrando polimorfismo
 
-**GestorServicios** (paquete `service` - aplicación existente)
+**GestorServicios** (paquete `service`)
 - Gestiona los servicios turísticos del sistema
 - Muestra rutas gastronómicas, paseos lacustres y excursiones culturales
 - Usa `instanceof` para filtrar por tipo
 
-**GestorEntidades** (paquete `data` - Semana 8)
+**GestorEntidades** (paquete `data`)
 - Gestiona una colección polimórfica de entidades que implementan `Registrable`
 - Contiene 6 objetos predefinidos: 2 GuiaTuristico, 2 Vehiculo, 2 ColaboradorExterno
 - Método `listarEntidades()` que usa `instanceof` para diferenciar tipos y llama a `mostrarResumen()` de cada entidad
@@ -264,10 +228,10 @@ src/main/java/cl/duocuc
 
 **Herencia**: 
 - `Empleado` extiende `Persona`
-- `GuiaTuristico` extiende `Persona` (Semana 8)
+- `GuiaTuristico` extiende `Persona`
 - `RutaGastronomica`, `PaseoLacustre` y `ExcursionCultural` extienden `ServicioTuristico`
 
-**Interfaces** (Semana 8):
+**Interfaces**:
 - `Registrable` - interfaz con método `mostrarResumen()`
 - Implementada por: `GuiaTuristico`, `Vehiculo`, `ColaboradorExterno`
 - Uso de `instanceof` en `GestorEntidades` para diferenciar tipos en colección polimórfica
@@ -286,7 +250,7 @@ src/main/java/cl/duocuc
 
 **Validación de Entrada**: Múltiples métodos de validación para garantizar integridad de datos
 
-**Interfaz Gráfica** (Semana 8): 
+**Interfaz Gráfica**: 
 - GUI básica con `JOptionPane` para entrada de datos
 - Formularios específicos para cada tipo de entidad registrable
 - Validación de campos y manejo de excepciones en la interfaz
